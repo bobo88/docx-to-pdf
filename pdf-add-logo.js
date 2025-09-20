@@ -21,13 +21,13 @@ async function addQrToPdf(pdfPath, imagePath, outputPath) {
     const image = await pdfDoc.embedJpg(imgBytes); // 如果是png则改成 embedPng
   
     const pages = pdfDoc.getPages();
-    // console.log('pages', image)
+    console.log('pages', image)
     pages.forEach(page => {
       const { width, height } = page.getSize();
-      const imgWidth = 80;  // 二维码宽度
-      const imgHeight = 80; // 二维码高度
-      const x = width - imgWidth - 10; // 右边距
-      const y = height - imgHeight - 10; // 上边距
+      const imgWidth = 30;  // 二维码宽度
+      const imgHeight = 30; // 二维码高度
+      const x = width - imgWidth - 20; // 右边距
+      const y = height - imgHeight - 20; // 上边距
       page.drawImage(image, {
         x,
         y,
